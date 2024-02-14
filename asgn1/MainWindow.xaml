@@ -1,0 +1,47 @@
+﻿<Window x:Class="asgn1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:asgn1"
+        mc:Ignorable="d"
+        Title="MP3 Player" Height="350" Width="525">
+    <DockPanel LastChildFill="True">
+        <!-- Menu -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open MP3" Click="OpenMp3_Click"/>
+                <MenuItem Header="Exit" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Media">
+                <MenuItem Header="Play" Click="Play_Click"/>
+                <MenuItem Header="Pause" Click="Pause_Click"/>
+                <MenuItem Header="Stop" Click="Stop_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Tag Current MP3" Click="EditTag_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Now Playing Screen -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Image x:Name="albumArt" Width="100" Height="100" />
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock x:Name="nowPlayingTitle" FontWeight="Bold" />
+                <TextBlock x:Name="nowPlayingArtist" />
+                <TextBlock x:Name="nowPlayingAlbum" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Tag Editor Screen -->
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBox x:Name="titleTextBox" Width="200" Margin="5" Foreground="Gray" Text="Title" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+            <TextBox x:Name="artistTextBox" Width="200" Margin="5" Foreground="Gray" Text="Artist" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+            <TextBox x:Name="albumTextBox" Width="200" Margin="5" Foreground="Gray" Text="Album" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+            <TextBox x:Name="yearTextBox" Width="200" Margin="5" Foreground="Gray" Text="Year" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+            <Button Content="Save" Click="SaveTag_Click"/>
+        </StackPanel>
+    </DockPanel>
+
+
+</Window>
